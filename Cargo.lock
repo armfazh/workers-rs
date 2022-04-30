@@ -200,7 +200,7 @@ dependencies = [
  "once_cell",
  "quote",
  "serde",
- "serde-wasm-bindgen",
+ "serde-wasm-bindgen 0.3.1",
  "serde_json",
  "string_cache",
  "string_cache_codegen",
@@ -1832,6 +1832,18 @@ name = "serde-wasm-bindgen"
 version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "618365e8e586c22123d692b72a7d791d5ee697817b65a218cdf12a98870af0f7"
+dependencies = [
+ "fnv",
+ "js-sys",
+ "serde",
+ "wasm-bindgen",
+]
+
+[[package]]
+name = "serde-wasm-bindgen"
+version = "0.4.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d5d0927d4115e78b52dfd4cabcb3cc79bd56b94a53cf27c074bf8b83af1765d1"
 dependencies = [
  "fnv",
  "js-sys",
@@ -3476,6 +3488,7 @@ dependencies = [
  "http",
  "js-sys",
  "matchit",
+ "mime_guess",
  "pin-project",
  "serde",
  "serde_json",
@@ -3561,6 +3574,9 @@ version = "0.0.4"
 dependencies = [
  "cfg-if 1.0.0",
  "js-sys",
+ "once_cell",
+ "serde-wasm-bindgen 0.4.2",
+ "serde_json",
  "wasm-bindgen",
  "web-sys",
 ]

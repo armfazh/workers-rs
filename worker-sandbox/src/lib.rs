@@ -553,6 +553,9 @@ pub async fn main(req: Request, env: Env, _ctx: worker::Context) -> Result<Respo
             let init_called = GLOBAL_STATE.load(Ordering::SeqCst);
             Response::ok(init_called.to_string())
         })
+        .get_async("/:sites", |req, ctx| async {
+            get_asset_from_kv(req, ctx).await
+        })
         .or_else_any_method_async("/*catchall", |_, ctx| async move {
             console_log!(
                 "[or_else_any_method_async] caught: {}",

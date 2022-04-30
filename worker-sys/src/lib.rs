@@ -1,6 +1,7 @@
 #![allow(clippy::manual_non_exhaustive)]
 
 pub mod abort;
+pub mod asset_handler;
 pub mod cf;
 pub mod context;
 pub mod durable_object;
@@ -59,6 +60,7 @@ pub mod prelude {
 }
 
 pub use abort::*;
+pub use asset_handler::*;
 pub use cf::Cf;
 pub use context::Context;
 pub use durable_object::*;

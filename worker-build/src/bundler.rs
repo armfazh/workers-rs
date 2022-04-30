@@ -26,7 +26,7 @@ pub fn bundle_worker(shim_src: String, mut dst: impl Write) -> Result<()> {
         Config {
             // In the future it could be nice for us to allow to have snippets that need wasm
             // probably blocked on https://github.com/rustwasm/wasm-bindgen/issues/2375.
-            external_modules: vec!["./index_bg.wasm".into()],
+            external_modules: vec!["./index_bg.wasm".into(), "__STATIC_CONTENT_MANIFEST".into()],
             ..Default::default()
         },
         Box::new(NoopHook),
