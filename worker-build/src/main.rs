@@ -30,6 +30,8 @@ import wasm from './glue.js';
 mod install;
 
 pub fn main() -> Result<()> {
+    const VERSION: &str = env!("CARGO_PKG_VERSION");
+    println!("MyProgram v{}", VERSION);
     // Our tests build the bundle ourselves.
     if !cfg!(test) {
         install::ensure_wasm_pack()?;
@@ -134,6 +136,7 @@ fn bundle(esbuild_path: &Path) -> Result<()> {
     let mut command = Command::new(esbuild_path);
     command.args([
         "--external:./index.wasm",
+        "--external:__STATIC_CONTENT_MANIFEST",
         "--format=esm",
         "--bundle",
         "./shim.js",

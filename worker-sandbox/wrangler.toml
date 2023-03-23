@@ -58,3 +58,6 @@ main = "./shim.mjs"
 [[build.upload.rules]]
 globs = ["**/*.wasm"]
 type = "CompiledWasm"
+
+[site]
+bucket = "./bucket"

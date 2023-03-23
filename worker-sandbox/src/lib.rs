@@ -701,6 +701,9 @@ pub async fn main(req: Request, env: Env, _ctx: worker::Context) -> Result<Respo
         .put_async("/r2/put-properties", r2::put_properties)
         .put_async("/r2/put-multipart", r2::put_multipart)
         .delete_async("/r2/delete", r2::delete)
+        .get_async("/:sites", |req, ctx| async {
+            get_asset_from_kv(req, ctx).await
+        })
         .or_else_any_method_async("/*catchall", |_, ctx| async move {
             console_log!(
                 "[or_else_any_method_async] caught: {}",

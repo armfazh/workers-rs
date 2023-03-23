@@ -1,5 +1,6 @@
 mod abort_controller;
 mod abort_signal;
+mod asset_handler;
 mod cache_storage;
 mod headers;
 mod request;
@@ -9,6 +10,7 @@ mod websocket;
 
 pub use abort_controller::*;
 pub use abort_signal::*;
+pub use asset_handler::*;
 pub use cache_storage::*;
 pub use headers::*;
 pub use request::*;
