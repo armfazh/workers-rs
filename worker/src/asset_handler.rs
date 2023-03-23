@@ -14,7 +14,7 @@ pub async fn get_asset_from_kv<D>(req: Request, ctx: RouteContext<D>) -> Result<
     let bytes = ctx.kv(ASSET_NAMESPACE)?.get(key).bytes().await?;
     if let Some(bytes) = bytes {
         let mut headers = Headers::new();
-        headers.set("content_type", &mime.to_string())?;
+        headers.set("content-type", &mime.to_string())?;
         return Ok(Response::from_bytes(bytes)?.with_headers(headers));
     }
 
